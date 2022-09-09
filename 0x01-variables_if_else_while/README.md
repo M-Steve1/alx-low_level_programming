@@ -1,0 +1,1 @@
+0-positive_or_negative.c, this c file will assign a random number to the variable n each time it is executed. prints the number stored to check whether the number stored in the variable n is positive or negative.
