@@ -14,13 +14,15 @@ int main(void)
 {
 
 	int i;
-
-	char my_string[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ\n";
+	
+	char new_line = '\n';
+	char my_string[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	int string_len = strlen(my_string);
 
 	for (i = 0; i <= string_len; i++)
 		putchar(tolower(my_string[i]));
+	putchar(new_line);
 
 	return (0);
 }
