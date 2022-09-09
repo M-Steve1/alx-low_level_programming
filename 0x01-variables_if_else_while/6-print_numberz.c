@@ -10,12 +10,14 @@ int main(void)
 {
 
 	char single_digit = '0';
+	int digit = single_digit;
 	char new_line = '\n';
+	int line = new_line;
 
-	for (single_digit = '0'; single_digit <= '9'; single_digit++)
-		putchar(single_digit);
+	for (digit = '0'; digit <= '9'; digit++)
+		putchar(digit);
 
-	putchar(new_line);
+	putchar(line);
 	return (0);
 
 }
