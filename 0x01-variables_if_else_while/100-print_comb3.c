@@ -10,7 +10,7 @@ int main(void)
 {
 
 	int i;
-	int j; 
+	int j;
 
 	for (i = 48; i <= 56; i++)
 	{
@@ -21,7 +21,7 @@ int main(void)
 				putchar(i);
 				putchar(j);
 
-				if(i == 56 && j == 57)
+				if (i == 56 && j == 57)
 					break;
 
 				putchar(',');
