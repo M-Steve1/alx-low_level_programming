@@ -9,15 +9,13 @@
 int main(void)
 {
 
-	char single_digit = '0';
-	int digit = single_digit;
-	char new_line = '\n';
-	int line = new_line;
+	long single_digit = '0';
+	long new_line = '\n';
 
-	for (digit = '0'; digit <= '9'; digit++)
-		putchar(digit);
+	for (single_digit = '0'; single_digit <= '9'; single_digit++)
+		putchar(single_digit);
 
-	putchar(line);
+	putchar(new_line);
 	return (0);
 
 }
