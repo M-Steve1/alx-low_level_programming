@@ -20,7 +20,7 @@ int main(void)
 		{
 			for (k = 48; k <= 59; k++)
 			{
-				for (l = 47; l <= 59; l++)
+				for (l = 49; l <= 59; l++)
 				{
 					if (l + k > j + i)
 					{
