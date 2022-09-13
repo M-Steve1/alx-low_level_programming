@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <string.h>
 #include "main.h"
 
 /**
@@ -10,23 +8,16 @@
  * Returns 0 (Success)
  */
 
-void _putchar()
-{
-
-  char word[9] = "_putchar";
-  int word_length = strlen(word);
-  int i;
-
-  for(i = 0; i < word_length; i++)
-    {
-      putchar(word[i]);
-    }
-
-  putchar('\n');
-}
 int main()
 {
-  _putchar();
+  _putchar("_");
+  _putchar("p");
+  _putchar("u");
+  _putchar("t");
+  _putchar("c");
+  _putchar("h");
+  _putchar("a");
+  _putchar("r");
 
   return 0;
 }
