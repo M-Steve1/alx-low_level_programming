@@ -1,0 +1,1 @@
+main.h - header file containing all the functions prototype
