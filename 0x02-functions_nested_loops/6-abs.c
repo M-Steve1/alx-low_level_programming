@@ -3,23 +3,23 @@
 /**
  * _abs - computes the absolute value of an integer
  *
- * @int: The character to compute
+ * @n: The character to compute
  *
  * Return: return an absolute integer
  */
 
-int _abs(int)
+int _abs(int n)
 {
-	if (int > 0)
+	if (n > 0)
 	{
-		return (int);
+		return (n);
 	}
-	else if (int == 0)
+	else if (n == 0)
 	{
 		return (0);
 	}
 	else
 	{
-		return (int * -1);
+		return (n * -1);
 	}
 }
