@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * convert_day - concerts day of the month of the year, without accounting
+ * convert_day - converts day of the month of the year, without accounting
  * for leap year
  * @month: month in number format
  * @day: day of month
