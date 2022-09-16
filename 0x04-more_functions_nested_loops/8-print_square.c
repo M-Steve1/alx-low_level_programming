@@ -38,6 +38,6 @@ void single_line_square(int c)
 	int i;
 
 	for (i = 0; i < c; i++)
-		putchar('#');
+		_putchar('#');
 }
 
