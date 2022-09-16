@@ -1,20 +1,32 @@
 #include "main.h"
 
 /**
- * print_line - prints the character '_' n times
- * @n: integer to detrmine how many times the character '_'
- * is printed
+ * print_diagonal - draws a diagonal line on the terminal.
+ * @n: determines numbers of diagonal to draw
  *
  * Return: void
  */
 
-void print_line(int n)
+void print_diagonal(int n)
 {
-	int m;
+	int a, b;
 
-	for (m = 0; m < n; m++)
-		if (n > 0)
-			_putchar('_');
+	if (n > 0)
+	{
+		for (a = 1; a <= n; a++)
+		{
+			_putchar(92);
+			_putchar('\n');
+			if (a == n)
+				break;
 
-	_putchar('\n');
+			for (b = 0; b < a; b++)
+				_putchar(' ');
+		}
+	}
+	else
+	{
+		_putchar('\n');
+	}
+
 }
