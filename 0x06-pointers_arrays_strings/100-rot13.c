@@ -17,7 +17,10 @@ char *rot13(char *c)
 	{
 		for (j = 0; m[j] != '\0'; j++)
 			if (c[i] == m[j])
+			{
 				c[i] = k[j];
+				break;
+			}
 	}
 	return (c);
 }
