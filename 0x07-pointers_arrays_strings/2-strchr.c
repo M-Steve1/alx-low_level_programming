@@ -11,12 +11,11 @@
 
 char *_strchr(char *s, char c)
 {
-
 	for ( ; *s != '\0' || *s != '\0'; s++)
 	{
 		if (*s == c)
 		{
-			return (s);
+			return(s);
 		}
 		else if (*s == '\0' && *s != c)
 		{
@@ -24,5 +23,4 @@ char *_strchr(char *s, char c)
 		}
 	}
 
-	return (s);
 }
