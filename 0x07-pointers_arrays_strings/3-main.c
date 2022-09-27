@@ -12,7 +12,9 @@ int main(void)
 	char *f = "oleh";
 	unsigned int n;
 
+	unsigned int k = _strspn("First, solve the problem. Then, write the code.", "[]{}()");
 	n = _strspn(s, f);
 	printf("%u\n", n);
+	printf("%u\n", k);
 	return (0);
 }
