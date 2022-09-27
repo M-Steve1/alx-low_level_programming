@@ -25,6 +25,7 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 		j++;
 		i++;
 	}
+	dest[i + 1] = '\0';
 
 	return (dest);
 }
