@@ -16,7 +16,7 @@ int _sqrt_recursion(int n)
 }
 
 /**
- * sqrt - Increment i to find the sqrt
+ * _sqrt - Increment i to find the sqrt
  * @n: integer to find the square root
  * @i: integer to increment
  *
@@ -28,5 +28,5 @@ int _sqrt(int n, int i)
 		return (i);
 	if ((i * i) > n)
 		return (-1);
-	return (sqrt(n, i + 1));
+	return (_sqrt(n, i + 1));
 }
