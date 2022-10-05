@@ -28,14 +28,15 @@ char *_strdup(char *str)
 	}
 	d = malloc(sizeof(char) * (len + 1));
 
+	if (d == NULL)
+		return (NULL);
+
 	while (str[i] != '\0')
 	{
 		d[i] = str[i];
 		i++;
 	}
 
-	if (d == NULL)
-		return (NULL);
 
 	return (d);
 
