@@ -1,97 +1,45 @@
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
+
 /**
- * string_nconcat - concatenates two strings.
- * @s1: string to concatenate
- * @s2: string to concatenate
- * @n: number of bytes of s2 to concatenate.
+ * *string_nconcat - concatenates n bytes of a string to another string
+ * @s1: string to append to
+ * @s2: string to concatenate from
+ * @n: number of bytes from s2 to concatenate to s1
  *
- * Return: returns pointer to the newly allocated space
- * in memory.
+ * Return: pointer to the resulting string
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, j, s2_len, s1_len;
-	char *s3;
+	char *s;
+	unsigned int i = 0, j = 0, len1 = 0, len2 = 0;
 
-	i = 0, j = 0, s2_len = 0, s1_len = 0;
+	while (s1 && s1[len1])
+		len1++;
+	while (s2 && s2[len2])
+		len2++;
 
-	while (s2[s2_len] != '\0')
-		s2_len++;
+	if (n < len2)
+		s = malloc(sizeof(char) * (len1 + n + 1));
+	else
+		s = malloc(sizeof(char) * (len1 + len2 + 1));
 
-	while (s1[s1_len] != '\0')
-		s1_len++;
+	if (!s)
+		return (NULL);
 
-	if (s1 == NULL && s2 == NULL)
+	while (i < len1)
 	{
-		s3 = malloc(sizeof(char));
-		s3 = "";
+		s[i] = s1[i];
+		i++;
 	}
-	if (n >= s2_len)
-	{
-		s3 = malloc((sizeof(char) * (s1_len + s2_len) + 1));
-		if (s3 == NULL)
-			return (NULL);
 
-		while (s1[i] != '\0')
-		{
-			s3[i] = s1[i];
-			i++;
-		}
-		while (s2[j] != '\0')
-		{
-			s3[i] = s2[j];
-			i++;
-			j++;
-		}
-		s3[i + j + 1] = '\0';
-		return (s3);
-	}
-	else if (s2 == NULL)
-	{
-		s3 = malloc(sizeof(char) * s1_len + 1);
-		if (s3 == NULL)
-			return (NULL);
-		while (s1[i] != '\0')
-		{
-			s3[i] = s1[i];
-			i++;
-		}
-		s3[i + 1] = '\0';
-		return (s3);
-	}
-	else if (s1 == NULL)
-	{
-		s3 = malloc(sizeof(char) * s2_len + 1);
-		if (s3 == NULL)
-			return (NULL);
-		while (s2[i] != '\0')
-		{
-			s3[i] = s2[i];
-			i++;
-		}
-		s3[i + 1] = '\0';
-		return (s3);
-	}
-	else if (n < s2_len)
-	{
-		s3 = malloc(sizeof(char) * (s1_len + n) + 1);
-		if (s3 == NULL)
-			return (NULL);
+	while (n < len2 && i < (len1 + n))
+		s[i++] = s2[j++];
 
-		while (s1[i] != '\0')
-		{
-			s3[i] = s1[i];
-			i++;
-		}
-		while (j < n)
-		{
-			s3[i] = s2[j];
-			i++;
-			j++;
-		}
-		s3[i + j + 1] = '\0';
-		return (s3);
-	}
-	return (NULL);
+	while (n >= len2 && i < (len1 + len2))
+		s[i++] = s2[j++];
+
+	s[i] = '\0';
+
+	return (s);
 }
