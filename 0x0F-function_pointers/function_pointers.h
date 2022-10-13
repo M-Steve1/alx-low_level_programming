@@ -1,4 +1,3 @@
-#include <stddef.h>
 #ifndef FILENAME_H
 #define FILENAME_H
 #define FILENAME __FILE__
