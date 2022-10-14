@@ -4,7 +4,7 @@
 /**
  * sum_them_all - A variadic functions that adds all its
  * parameters
- * @n: first parameter
+ * @n: The number of integers passed to the function
  *
  * Return: Returns the sum of all its parameters
  * 0 if n is 0.

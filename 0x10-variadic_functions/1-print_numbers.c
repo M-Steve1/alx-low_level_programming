@@ -6,7 +6,7 @@
 /**
  * print_numbers - A variadic function that prints its
  * parameters
- * @sepertor: string to be printed between numbers
+ * @separator: string to be printed between numbers
  * @n: number of integers passed to the function
  *
  * Return: Returns nothing.
@@ -17,7 +17,11 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_list ap;
 
 	if (n == 0)
+	{
+		printf("%s", separator);
+		putchar('\n');
 		return;
+	}
 
 	va_start(ap, n);
 
