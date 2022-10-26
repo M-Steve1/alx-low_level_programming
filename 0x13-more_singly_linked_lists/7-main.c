@@ -48,7 +48,7 @@ int main(void)
 
     print_listint(head);
 
-    node = get_nodeint_at_index(head, 15);
+    node = get_nodeint_at_index(head, 5);
 
     printf("%d\n", node->n);
 
