@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "lists.h"
 
 /**
@@ -10,10 +11,12 @@
 int pop_listint(listint_t **head)
 {
 	listint_t *next_node;
-	int removed_node_int;
+	int removed_node_int = 0;
 
-	if (head == NULL)
-		return (0);
+	if (*head == NULL)
+	{
+		return (removed_node_int);
+	}
 
 	next_node = (*head)->next;
 	removed_node_int = (*head)->n;
