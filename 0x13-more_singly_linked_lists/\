@@ -12,14 +12,14 @@
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
 	unsigned int i = 0;
-	unsigned int count = 0;
-
+	unsigned int count = 9;
+/**
 	while (head)
 	{
 		count++;
 		head = head->next;
 	}
-
+*/
 	if (index == 0)
 		return (head);
 	else if (index < count)
@@ -32,5 +32,8 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 		return (head);
 	}
 	else
-		return (NULL);
+	{
+		printf("(nil)");
+	}
+	return (NULL);
 }
