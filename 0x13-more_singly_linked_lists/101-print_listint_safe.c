@@ -17,9 +17,6 @@ temp = NULL, ptr = NULL;
 
 count = 0;
 
-if (head == NULL)
-	exit(98);
-
 temp = head;
 
 while (temp)
@@ -39,6 +36,9 @@ return (count);
 i++;
 ptr = ptr->next;
 }
+
+if (!head)
+	exit(98);
 }
 return (count);
 }
