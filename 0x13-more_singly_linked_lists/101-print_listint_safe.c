@@ -19,6 +19,8 @@ count = 0;
 
 temp = head;
 
+if (head == NULL)
+	exit(98);
 while (temp)
 {
 printf("[%p] %d\n", (void *)temp, temp->n);
@@ -36,9 +38,6 @@ return (count);
 i++;
 ptr = ptr->next;
 }
-
-if (!head)
-	exit(98);
 }
 return (count);
 }
