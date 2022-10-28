@@ -19,7 +19,7 @@ count = 0;
 
 temp = head;
 
-if (head == NULL)
+if (!head)
 	exit(98);
 while (temp)
 {
