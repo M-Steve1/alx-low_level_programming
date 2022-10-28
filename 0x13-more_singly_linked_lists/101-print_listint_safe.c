@@ -42,10 +42,6 @@ return (count);
 i++;
 ptr = ptr->next;
 }
-/**
-if (!head)
-	exit(98);
-	*/
 }
 return (count);
 }
