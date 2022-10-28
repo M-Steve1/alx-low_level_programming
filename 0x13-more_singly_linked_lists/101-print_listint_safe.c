@@ -30,7 +30,7 @@ while (i < count)
 {
 if (ptr == temp)
 {
-printf("[%p] %d\n", (void *)temp, temp->n);
+printf("-> [%p] %d\n", (void *)temp, temp->n);
 return (count);
 }
 i++;
