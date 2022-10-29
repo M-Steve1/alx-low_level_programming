@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <stddef.h>
 #include "lists.h"
 
 /**
@@ -13,6 +14,8 @@ int main(void)
     listint_t *head;
     listint_t *head2;
     listint_t *node;
+    size_t n = 0;
+    size_t m = 0;
 
     head2 = NULL;
     add_nodeint(&head2, 0);
@@ -34,8 +37,10 @@ int main(void)
     add_nodeint(&head, 402);
     add_nodeint(&head, 1024);
     print_listint_safe(head);
-    free_listint_safe(&head2);
-    free_listint_safe(&head);
+    n = free_listint_safe(&head2);
+    m = free_listint_safe(&head);
+    printf("size1 [%ld]\n", n);
+    printf("size2 [%ld]\n", m);
     printf("%p, %p\n", (void *)head2, (void *)head);
     return (0);
 }
