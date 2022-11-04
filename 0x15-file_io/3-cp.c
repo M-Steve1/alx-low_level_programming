@@ -76,7 +76,7 @@ int main(int ac, char **av)
 		if (file == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
-			       "Error: Can't read from %s", av[1]);
+			       "Error: Can't read from %s\n", av[1]);
 			free(buffer);
 			exit(98);
 		}
@@ -84,7 +84,7 @@ int main(int ac, char **av)
 		if (copy == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: Can't write to %s", av[2]);
+				"Error: Can't write to %s\n", av[2]);
 			free(buffer);
 			exit(99);
 		}
