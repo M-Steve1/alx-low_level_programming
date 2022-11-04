@@ -13,7 +13,7 @@ char *create_buffer(char *file_name)
 {
 	char *buffer;
 
-	buffer = malloc(sizeof(char)1024);
+	buffer = malloc(sizeof(char) * 1024);
 
 	if (buffer == NULL)
 	{
@@ -74,7 +74,7 @@ int main(int ac, char **av)
 	copy = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
 	do {
-		if (from == -1 || r == -1)
+		if (file == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
 			       "Error: Can't read from %s", av[1]);
