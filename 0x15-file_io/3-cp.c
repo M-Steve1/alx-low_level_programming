@@ -2,74 +2,100 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
-#include <string.h>
-/**
- * copy_file - Copies the content of a file to another file.
- * @file_from: file whose content is to be copied.
- * @file_to: Destination file.
- * Return: Returns 1 if success.
- */
-int copy_file(char *file_from, char *file_to)
-{
-	FILE *file, *copy;
-	int c, c1;
-	char *data;
-	size_t w;
-	long int file_size;
 
-	if (file_from == NULL)
-	{
-		printf("Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-	if (file_to == NULL)
-	{
-		printf("Error: Can't write to %s\n", file_to);
-		exit(99);
-	} file = fopen(file_from, "r");
-	if (file == NULL)
-	{
-		printf("Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-	fseek(file, 0, SEEK_END), file_size = ftell(file);
-	fseek(file, 0, SEEK_SET), data = malloc(file_size);
-	memset(data, 0, file_size), fread(data, 1, file_size, file);
-	copy = fopen(file_to, "w"), w = fwrite(data, 1, file_size, copy);
-	if (w == 0 || copy == NULL)
-	{
-		printf("Error: Can't write to %s\n", file_to);
-		exit(99);
-	} c = fclose(file);
-	if (c != 0)
-	{
-		fprintf(file, "%s", "Error: Can't close fd\n");
-		exit(100);
-	} c1 = fclose(copy);
-	if (c1 != 0)
-	{
-		fprintf(copy, "%s", "Error: Can't close fd\n");
-		exit(100);
-	} return (1);
-}
 /**
- * main - check the code
+ * create_buffer - Allocates 1024 bytes in memory.
+ * @file_name: File to make use of the buffer.
+ *
+ * Return: Returns Pointer to the newly allocated space.
+ */
+char *create_buffer(char *file_name)
+{
+	char *buffer;
+
+	buffer = malloc(1024);
+
+	if (buffer == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_name);
+		exit(99);
+	}
+
+	return (buffer);
+}
+
+/**
+ * close_file - Closes file;
+ * @fd: file descripion of file to close.
+ *
+ * Return: Returns Nothing.
+ */
+void close_file(int fd)
+{
+	int c;
+
+	c = close(fd);
+
+	if (c == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
+}
+
+/**
+ * main - Copies the content of a file to another file.
+ * @ac: Argument count.
+ * @av: Argument vectors.
+ *
+ * Description: If the argument count is incorrect - exit code 97.
+ *              If file_from does not exist or cannot be read - exit code 98.
+ *              If file_to cannot be created or written to - exit code 99.
+ *              If file_to or file_from cannot be closed - exit code 100.
  *
  * Return: Always 0.
  */
 
 int main(int ac, char **av)
 {
-	int res;
+	char *buffer;
+	int file, copy;
+	ssize_t r, w;
 
 	if (ac != 3)
 	{
-		printf("Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	buffer = create_buffer(av[2]);
+	file = open(av[1], O_RDONLY);
+	r = read(file, buffer, 1024);
+	copy = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
-	res = copy_file(av[1], av[2]);
-    	printf("-> %i)\n", res);
+	do {
+		if (r == -1)
+		{
+			dprintf(STDERR_FILENO,
+			       "Error: Can't read from %s", av[1]);
+			free(buffer);
+			exit(98);
+		}
+		w = write(copy, buffer, r);
+		if (w == -1)
+		{
+			dprintf(STDERR_FILENO,
+				"Error: Can't write to %s", av[2]);
+			free(buffer);
+			exit(99);
+		}
+		r = read(file, buffer, 1024);
+		copy = open(av[2], O_WRONLY | O_APPEND);
+
+	} while (r > 0);
+
+	close(file);
+	close(copy);
+	free(buffer);
 
 	return (0);
 }
