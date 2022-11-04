@@ -60,8 +60,7 @@ void close_file(int fd)
 int main(int ac, char **av)
 {
 	char *buffer;
-	int file, copy;
-	ssize_t r, w;
+	int file, copy, r, w;
 
 	if (ac != 3)
 	{
