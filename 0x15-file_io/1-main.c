@@ -9,6 +9,9 @@
  */
 int main(int ac, char **av)
 {
+	(void)ac;
+	(void)av;
+	/**
     int res;
 
     if (ac != 3)
@@ -18,5 +21,7 @@ int main(int ac, char **av)
     }
     res = create_file(av[1], av[2]);
     printf("-> %i)\n", res);
+    */
+    create_file("empty", NULL);
     return (0);
 }

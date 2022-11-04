@@ -13,9 +13,12 @@
 int create_file(const char *filename, char *text_content)
 {
 	int fd;
-	ssize_t w;
+	ssize_t w, len;
 
-	size_t len = strlen(text_content);
+	if (text_content == NULL)
+		len = 0;
+	else
+		len = strlen(text_content);
 
 	if (filename == NULL)
 		return (-1);
