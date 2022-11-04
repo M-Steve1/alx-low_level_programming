@@ -13,7 +13,7 @@ char *create_buffer(char *file_name)
 {
 	char *buffer;
 
-	buffer = malloc(1024);
+	buffer = malloc(sizeof(char)1024);
 
 	if (buffer == NULL)
 	{
@@ -26,6 +26,7 @@ char *create_buffer(char *file_name)
 
 /**
  * close_file - Closes file;
+ *
  * @fd: file descripion of file to close.
  *
  * Return: Returns Nothing.
@@ -73,7 +74,7 @@ int main(int ac, char **av)
 	copy = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
 	do {
-		if (r == -1)
+		if (from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
 			       "Error: Can't read from %s", av[1]);
@@ -81,7 +82,7 @@ int main(int ac, char **av)
 			exit(98);
 		}
 		w = write(copy, buffer, r);
-		if (w == -1)
+		if (copy == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s", av[2]);
