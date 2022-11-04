@@ -93,8 +93,8 @@ int main(int ac, char **av)
 
 	} while (r > 0);
 
-	close(file);
-	close(copy);
+	close_file(file);
+	close_file(copy);
 	free(buffer);
 
 	return (0);
