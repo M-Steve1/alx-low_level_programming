@@ -12,27 +12,19 @@
  */
 int main(int argc, char *argv[])
 {
-	long int add;
-
 	int i;
 
-	add = 0;
 
 	if (argc > 1)
 	{
 		for (i = 0; i < argc; i++)
 		{
-			if (!(isalpha(*argv[i])))
-			{
-				add += atoi(argv[i]);
-			}
+			if (isdigit(argv[i]))
+				printf("yes");
 			else
-			{
-				printf("Error\n");
-				return (1);
-			}
+				printf("no");
+			break;
 		}
-		printf("%li\n", add);
 	}
 	else
 	{
